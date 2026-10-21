@@ -217,7 +217,7 @@
   line-height: 1.5;
 }
 
-/* Priority colors, shared by the matrix now and the badges and ticket cards later */
+/* Priority colors, shared by the matrix tiles, badges and ticket card stripes */
 
 .priority-fill--p1 {
   background-color: var(--red);
@@ -322,13 +322,11 @@
   color: var(--on-navy);
 }
 
-.card__block--red,
 .category-tile__block--red {
   background-color: var(--red);
   color: var(--on-red);
 }
 
-.card__block--yellow,
 .category-tile__block--yellow {
   background-color: var(--yellow);
   color: var(--on-yellow);

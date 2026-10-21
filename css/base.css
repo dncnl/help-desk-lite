@@ -96,6 +96,20 @@ select {
   animation-delay: calc(var(--order, 0) * var(--stagger));
 }
 
+/* Scroll reveal. app.js adds .reveal itself, so without JavaScript nothing starts hidden. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

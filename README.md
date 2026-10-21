@@ -8,12 +8,14 @@ Built in one evening as a work sample for an IT internship interview.
 
 ## Features
 
-- Ticket form with category, description, impact and urgency
-- Auto-priority (P1 to P4) based on impact x urgency, similar to ITIL priority matrices
+- Ticket form with category, description, impact and urgency, with friendly inline validation
+- Auto-priority (P1 to P4) based on impact x urgency, similar to ITIL priority matrices, with a live preview as you fill in the form
 - Suggested first troubleshooting steps per category (Network, Hardware, Microsoft 365, Account/Login, Printer, Security)
-- Ticket board with Open, In Progress and Resolved columns
-- Tickets saved in the browser with localStorage
+- Ticket board with Open, In Progress and Resolved columns, sorted by priority then age
+- Filter the board by priority, plus a stats strip for open, in progress, resolved and open P1 tickets
+- Tickets saved in the browser with localStorage; sample tickets on first visit and a "Reset demo" link
 - Responsive layout for desktop and mobile
+- Accessible by default: real form controls under the custom tiles, visible focus states, and animations turned off for people who prefer reduced motion
 
 ## Priority matrix
 

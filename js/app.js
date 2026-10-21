@@ -56,6 +56,28 @@ function updateNavShadow() {
   }
 }
 
+// Fades each section up once as it scrolls into view. Skipped entirely for reduced motion.
+function setUpScrollReveal() {
+  if (reducedMotion.matches) {
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal--visible');
+        // Only reveal once; scrolling back up shouldn't replay it
+        observer.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.15 });
+
+  for (const section of document.querySelectorAll('[data-reveal]')) {
+    section.classList.add('reveal');
+    observer.observe(section);
+  }
+}
+
 // Built from the same lookup the form uses, so the chart can never disagree with the app
 function renderPriorityMatrix() {
   const headRow = document.querySelector('#matrix-head');
@@ -75,7 +97,7 @@ function renderPriorityMatrix() {
 
     for (const urgency of URGENCY_LEVELS) {
       const priority = getPriority(impact.value, urgency.value);
-      const className = 'matrix__tile priority-fill priority-fill--' + priority.toLowerCase();
+      const className = 'matrix__tile priority-fill--' + priority.toLowerCase();
       row.append(createElement('td', className, priority));
     }
 
@@ -152,7 +174,7 @@ function updatePriorityPreview() {
     return;
   }
 
-  priorityPreview.className = 'priority-badge priority-fill priority-fill--' + priority.toLowerCase();
+  priorityPreview.className = 'priority-badge priority-fill--' + priority.toLowerCase();
   priorityPreview.textContent = priority;
 
   // Reading offsetWidth forces a layout, which lets the pop animation restart on every change
@@ -316,7 +338,7 @@ function createTicketCard(ticket) {
   time.dateTime = new Date(ticket.createdAt).toISOString();
   time.dataset.timestamp = ticket.createdAt;
 
-  header.append(createElement('span', 'priority-badge priority-fill ' + priorityClass, ticket.priority));
+  header.append(createElement('span', 'priority-badge ' + priorityClass, ticket.priority));
   header.append(createElement('span', 'ticket-card__category', findCategory(ticket.category).label));
   meta.append(time);
   actions.append(createTicketButton(ticket));
@@ -540,6 +562,7 @@ priorityFilter.addEventListener('change', handleFilterChange);
 resetDemoButton.addEventListener('click', handleResetDemo);
 
 updateNavShadow();
+setUpScrollReveal();
 renderPriorityMatrix();
 renderCategoryTiles();
 renderChoices(document.querySelector('#impact-choices'), 'impact', IMPACT_LEVELS);
