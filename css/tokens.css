@@ -11,6 +11,10 @@
   --ink: #111111;
   --white: #FFFFFF;
   --muted: #505050;
+  /* Input borders need 3:1 against white to count as visible (WCAG 1.4.11) */
+  --line: #8C8C8C;
+  /* Brand red is too light for small text, so errors use a darker shade */
+  --error: #B02A17;
 
   /* Text colors that keep readable contrast on each brand color */
   --on-purple: var(--white);

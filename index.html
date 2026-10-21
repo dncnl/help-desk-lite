@@ -85,6 +85,77 @@
         </div>
       </div>
     </section>
+
+    <section class="section" id="log" aria-labelledby="log-title">
+      <div class="container">
+        <h2 class="section__title section__title--purple" id="log-title">Log a ticket</h2>
+        <p class="section__intro">
+          Tell us what's wrong. We'll set the priority and give you a few things to try while you wait.
+        </p>
+
+        <form class="card ticket-form" id="ticket-form" novalidate>
+          <div class="card__block card__block--navy">
+            <p class="card__block-title">New ticket</p>
+          </div>
+
+          <div class="card__body ticket-form__body">
+            <div class="field">
+              <label class="field__label" for="name">Your name</label>
+              <input class="field__input" type="text" id="name" name="name" autocomplete="name"
+                aria-describedby="name-error">
+              <p class="field__error" id="name-error"></p>
+            </div>
+
+            <fieldset class="field" aria-describedby="category-error">
+              <legend class="field__label">Category</legend>
+              <div class="category-grid" id="category-grid"></div>
+              <p class="field__error" id="category-error"></p>
+
+              <div class="steps-panel" id="steps-panel" aria-live="polite">
+                <div class="steps-panel__inner">
+                  <div class="steps-panel__content">
+                    <h3 class="steps-panel__title" id="steps-title">Try this first</h3>
+                    <ol class="steps-panel__list" id="steps-list"></ol>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="field__label" for="description">Short description</label>
+              <textarea class="field__input field__input--textarea" id="description" name="description"
+                rows="3" maxlength="200" placeholder="e.g. Outlook keeps asking for my password"
+                aria-describedby="description-error"></textarea>
+              <p class="field__error" id="description-error"></p>
+            </div>
+
+            <div class="ticket-form__pair">
+              <fieldset class="field" aria-describedby="impact-error">
+                <legend class="field__label">Who is affected?</legend>
+                <div class="choice-group" id="impact-choices"></div>
+                <p class="field__error" id="impact-error"></p>
+              </fieldset>
+
+              <fieldset class="field" aria-describedby="urgency-error">
+                <legend class="field__label">How urgent is it?</legend>
+                <div class="choice-group" id="urgency-choices"></div>
+                <p class="field__error" id="urgency-error"></p>
+              </fieldset>
+            </div>
+
+            <div class="ticket-form__footer">
+              <p class="priority-preview">
+                <span class="priority-preview__label">Priority</span>
+                <output class="priority-badge priority-badge--empty" id="priority-preview">Not set</output>
+              </p>
+              <button class="button button--primary" type="submit">Log ticket</button>
+            </div>
+
+            <p class="ticket-form__status" id="form-status" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
