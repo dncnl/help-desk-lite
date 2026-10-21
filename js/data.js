@@ -1,4 +1,4 @@
-// Static app data: impact and urgency options, and ticket categories with their first troubleshooting steps.
+// Static app data: impact and urgency options, ticket categories with their first steps, board statuses and sample tickets.
 
 // The value is what gets stored and looked up; the label is what people read
 export const IMPACT_LEVELS = [
@@ -74,5 +74,43 @@ export const CATEGORIES = [
       'Disconnect from the network if malware is suspected.',
       'Report it to IT right away and reset the password.',
     ],
+  },
+];
+
+// Board columns in workflow order; action is the label of the button that moves a ticket on
+export const STATUSES = [
+  { value: 'open', action: 'Start work' },
+  { value: 'in-progress', action: 'Mark resolved' },
+  { value: 'resolved', action: null },
+];
+
+// Ages are stored in minutes, so the demo always looks recent no matter when it is opened
+export const SAMPLE_TICKETS = [
+  {
+    name: 'Maria Santos',
+    category: 'network',
+    description: 'The whole office lost internet after the router restarted.',
+    impact: 'office',
+    urgency: 'high',
+    status: 'open',
+    minutesAgo: 12,
+  },
+  {
+    name: 'Paolo Reyes',
+    category: 'microsoft-365',
+    description: 'The Accounts team shared mailbox will not open in Outlook.',
+    impact: 'team',
+    urgency: 'medium',
+    status: 'in-progress',
+    minutesAgo: 47,
+  },
+  {
+    name: 'Jen Cruz',
+    category: 'account',
+    description: 'Locked out after changing my password on my phone.',
+    impact: 'single',
+    urgency: 'high',
+    status: 'resolved',
+    minutesAgo: 190,
   },
 ];

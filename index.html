@@ -156,6 +156,68 @@
         </form>
       </div>
     </section>
+
+    <section class="section section--purple stats" aria-label="Ticket stats">
+      <div class="container">
+        <dl class="stats__list">
+          <div class="stats__item">
+            <dt class="stats__label">Open tickets</dt>
+            <dd class="stats__value" id="stat-open">0</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="stats__label">In progress</dt>
+            <dd class="stats__value" id="stat-in-progress">0</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="stats__label">Resolved</dt>
+            <dd class="stats__value" id="stat-resolved">0</dd>
+          </div>
+          <div class="stats__item">
+            <dt class="stats__label">P1 open</dt>
+            <dd class="stats__value" id="stat-p1">0</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="board" aria-labelledby="board-title">
+      <div class="container">
+        <div class="board-header">
+          <div>
+            <h2 class="section__title section__title--purple" id="board-title">Board</h2>
+            <p class="section__intro">Highest priority first, then oldest. Work from the top.</p>
+          </div>
+
+          <fieldset class="board-filter">
+            <legend class="field__label">Show priority</legend>
+            <div class="choice-group" id="priority-filter"></div>
+          </fieldset>
+        </div>
+
+        <div class="board">
+          <section class="board__column" aria-labelledby="column-open-title">
+            <h3 class="board__title" id="column-open-title">
+              Open <span class="board__count" id="count-open">0</span>
+            </h3>
+            <ul class="board__list" id="list-open"></ul>
+          </section>
+          <section class="board__column" aria-labelledby="column-in-progress-title">
+            <h3 class="board__title" id="column-in-progress-title">
+              In progress <span class="board__count" id="count-in-progress">0</span>
+            </h3>
+            <ul class="board__list" id="list-in-progress"></ul>
+          </section>
+          <section class="board__column" aria-labelledby="column-resolved-title">
+            <h3 class="board__title" id="column-resolved-title">
+              Resolved <span class="board__count" id="count-resolved">0</span>
+            </h3>
+            <ul class="board__list" id="list-resolved"></ul>
+          </section>
+        </div>
+
+        <button class="link-button" type="button" id="reset-demo">Reset demo</button>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">

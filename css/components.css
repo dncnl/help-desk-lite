@@ -1,4 +1,4 @@
-/* Component styles: nav, buttons, hero, sections, priority matrix, cards, ticket form and footer. */
+/* Component styles: nav, buttons, hero, sections, priority matrix, cards, ticket form, stats, board and footer. */
 
 /* Nav */
 
@@ -653,6 +653,208 @@
   50% {
     transform: scale(1.15);
   }
+}
+
+/* Stats strip */
+
+.stats {
+  padding-block: var(--space-7);
+}
+
+.stats__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6) var(--space-5);
+}
+
+@media (min-width: 48rem) {
+  .stats__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* The number comes first visually, but the label stays first in the HTML for screen readers */
+.stats__item {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.stats__label {
+  font-weight: var(--weight-light);
+}
+
+.stats__value {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-hero);
+  font-weight: var(--weight-heavy);
+  line-height: 1;
+  /* Equal-width digits stop the number from jiggling while it counts up */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Board */
+
+.board-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.board {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 56rem) {
+  .board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+}
+
+.board__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-3);
+  border-bottom: 3px solid var(--purple);
+  font-size: var(--text-lg);
+  color: var(--purple);
+}
+
+.board__count {
+  min-width: 1.75rem;
+  padding: var(--space-1) var(--space-2);
+  line-height: 1;
+  border-radius: var(--radius-pill);
+  background-color: var(--purple);
+  color: var(--on-purple);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.board__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.board__empty {
+  padding: var(--space-5);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  text-align: center;
+}
+
+.link-button {
+  margin-top: var(--space-6);
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: var(--purple);
+}
+
+/* Ticket cards */
+
+.ticket-card__stripe {
+  height: 0.5rem;
+}
+
+.ticket-card__body {
+  padding: var(--space-4);
+}
+
+.ticket-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.ticket-card__category {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--muted);
+}
+
+.ticket-card__title {
+  margin-top: var(--space-3);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  line-height: 1.4;
+}
+
+.ticket-card__meta {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-light);
+}
+
+.ticket-card__actions {
+  margin-top: var(--space-4);
+}
+
+.ticket-card--enter {
+  animation: card-in var(--duration-slow) var(--ease-out) both;
+}
+
+/* forwards keeps the card invisible after fading out, until JS moves or removes it */
+.ticket-card--leave {
+  animation: card-out var(--duration-base) var(--ease-out) forwards;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes card-out {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.button--small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.button--ghost {
+  background-color: transparent;
+  color: var(--purple);
+  box-shadow: inset 0 0 0 2px var(--purple);
+}
+
+/* The border is an inset shadow, so hover and press have to keep it in their shadow lists */
+.button--ghost:hover {
+  box-shadow: inset 0 0 0 2px var(--purple), var(--shadow-md);
+}
+
+.button--ghost:active {
+  box-shadow: inset 0 0 0 2px var(--purple), var(--shadow-sm);
 }
 
 /* Footer */
