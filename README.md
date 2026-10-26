@@ -4,7 +4,7 @@ A simple IT help desk app for logging and prioritizing support tickets. Users su
 
 Built in one evening as a work sample for an IT internship interview.
 
-**Live demo:** _add your Vercel link here_
+**Live demo:** (https://help-desk-lite-six.vercel.app)
 
 ## Features
 
